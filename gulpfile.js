@@ -15,13 +15,23 @@ function makeStructure() {
 exports.makeStructure = makeStructure;
 
 // SASS Tasks
-
 const sass = require("gulp-sass");
 
 function scssTask() {
   return src("scss/styles.scss", { sourcemaps: true })
     .pipe(sass())
     .pipe(dest("css", { sourcemaps: "." }));
+}
+
+// Typescript compilation 
+const ts = require('gulp-typescript');
+
+function tsCompilation(){
+  return src("ts/index.ts")
+    .pipe(ts({
+      out: 'index.js'
+    }))
+    .pipe(dest("js"));
 }
 
 // Live Server
@@ -42,8 +52,9 @@ function browsersyncReload(cb) {
 // Watch Task
 function watchTask() {
   watch("*.html", browsersyncReload);
-  watch(["scss/**/*.scss", "js/**/*.js"], series(scssTask, browsersyncReload));
+  watch("ts/**/*.ts", tsCompilation);
+  watch(["scss/**/*.scss", "js/**/*.js"], series(scssTask,browsersyncReload));
 }
 
 // Default Gulp task
-exports.default = series(scssTask, browsersyncServe, watchTask);
+exports.default = series(scssTask, browsersyncServe, watchTask,tsCompilation);
