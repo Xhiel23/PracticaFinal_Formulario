@@ -1,4 +1,102 @@
 @import '_reset';
-@include reset;
+*{
+    @include reset;
+}
 
-@import '_var&fxs'
+@import '_var&fxs';
+
+main{
+    min-height: 100vh;
+    background: linear-gradient(to left bottom, $baseColor1,$baseColor2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .glass{
+        @include glass(right,bottom,0.3,0.5);
+        padding: 1em 1em;
+        min-height: 80vh;
+        width: 70%;
+        border-radius: 1.5em;
+        z-index: 2;
+        backdrop-filter: blur(1.2em);
+        .tittle{
+            padding: 1em 1em;
+            margin: auto;
+            width: 60%;
+            border-radius: 1.5em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @include glass(right,bottom,0.4,0.5);
+            h1{
+                font-family: $tittlesFont;
+                font-weight: $h1Weight;
+                color: $fontColor1;
+                font-size: $h1Size;
+            }
+        }
+        .form{
+            padding: 1.5em 1.5em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .field{
+                padding: 0 2em;
+                margin: 0.5em 2em;
+                width: 100%;
+                @include glass(right,bottom,0.4,0.5);
+                border-radius: 1.5em;
+                .tittleDiv{
+                    padding: 1em 0 0 0;
+                    h2{
+                        font-family: $tittlesFont;
+                        font-weight: $h2Weight;
+                        color: $fontColor1;
+                        font-size: $h2Size;
+                    }
+                    .line{
+                        background-color: $fontColor1;
+                        opacity: 0.5;
+                        width: 100%;
+                        height: 2px;
+                        border-radius: 50%;
+                    }
+                }
+
+                .textArea{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    padding: 1em;
+                    font-family: $bodyFont; 
+                    color: $fontColor2;
+                    font-weight: 400;
+                    .item{
+                        display: flex;
+                        justify-content: space-evenly;
+                        flex: 1;
+                        align-items: center;
+                    }
+                    input[type='text'], input[type='number']{
+                        background-color: $fillColor;
+                        border-radius: 1.5em;
+                        height: 1em;
+                        padding: 1em;
+                        margin: 0.5em;
+                        flex: 1;
+                        font-family: inherit;
+                        border: none;
+                        color: $fontColor2;
+                        &::placeholder{
+                            color: $fontColor2;
+                            opacity: 0.6;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,49 @@
+$baseColor1: #BBC8ED;
+$baseColor2: #D6B7DB;
+
+$fontColor1: #1F2B3C;
+$fontColor2: #2A3B52;
+$fillColor: rgba(187,200,237,0.5);
+$glassWhite: rgba(255,255,255,1);
+$mainBg: white;
+
+
+$tittlesFont: 'Montserrat';
+$h1Weight: 900;
+$h1Size: 1.3em;
+$h2Size: 1em;
+$h2Weight: 700;
+$bodyFont: 'Work Sans';
+
+
+@mixin glass($direction1, $direction2,$intensity1, $intensity2){
+    background-color: $mainBg;
+    background: linear-gradient(to $direction1 $direction2, rgba(255,255,255,$intensity1),rgba(255,255,255,$intensity2));
+}
+
+
+@mixin flexPosition($direction,$wrapping,$just){
+    display: flex;
+    flex: $direction $wrapping;
+    justify-content: $just;
+    align-items: center;
+    align-content: initial;
+}
+@mixin fixedTop(){
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+@mixin up($separation){
+    text-transform: uppercase;
+    letter-spacing: $separation;
+}
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == medium {
+        @media screen and (max-width:1000px) { @content };
+    }
+    @if $breakpoint == small {
+        @media screen and (max-width:650px) { @content };
+    }
+}

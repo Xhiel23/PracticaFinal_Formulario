@@ -3,11 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Work+Sans:wght@300;400&display=swap">
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/index.js"></script>
     <title>Document</title>
 </head>
 <body>
-    
+    <main>
+        <div class="glass">
+            <div class="tittle">
+                <h1>Formulario Alta Telefónica</h1>
+            </div>
+            <form class="form" action=""> 
+                <fieldset class="field">
+                    <div class="tittleDiv">
+                        <h2>Datos personales</h2>
+                        <div class="line"></div>
+                    </div>
+                    <div class="textArea">
+                        <div class="item">                        
+                            <label for="name">Nombre:</label>
+                            <input type="text" id="name" maxlength="30" value="" placeholder="Nombre"/><br/>
+                        </div>
+                        <div class="item">                        
+                            <label for="apellido">Apellido:</label>
+                            <input type="text" id="apellido" value="" placeholder="Apellido"/><br/>
+                        </div>
+                        <div class="item">                        
+                            <label for="direccion">Dirección:</label>
+                            <input type="text" id="direccion" value="" placeholder="Dirección"/><br/>
+                        </div>
+                        <div class="item">                        
+                            <label for="codigoPostal">Código Postal:</label>
+                            <input type="text" pattern = "[0-9]" maxlength="5" id="codigoPostal" value="" placeholder="Código Postal"/><br/>    
+                        </div>
+                        <div class="item">                        
+                            <label for="localidad">Localidad:</label>
+                            <input type="text" id="localidad" value="" placeholder="Localidad"/><br/>
+                        </div>
+                    </div> 
+                </fieldset>
+
+                <fieldset class="field">
+                    <div class="tittleDiv">
+                        <h2>Tipo de Contratación</h2>
+                    </div>
+                    <input type="radio" name="contratacion" value="0"> Nueva Contratación</input>
+                    <input type="radio" name="contratacion" value="1"> Portabilidad</input>
+                    <input type="radio" name="contratacion" value="2"> Cambio de Contrato</input>
+                    <p>Elija la compañía actual: </p>
+                    <select name="compañia" checked="checked">
+                        <option value="0">Yoigo</option>
+                        <option value="1">Movistar</option>
+                        <option value="2">Orange</option>
+                        <option value="3">Vodafone</option>
+                        <option value="4">No tengo ninguna compañia</option>
+                    </select>
+
+                    <p>En caso de portabilidad, elija la nueva compañía: </p>
+                    <select name="compañia" checked="checked">
+                        <option value="0">Yoigo</option>
+                        <option value="1">Movistar</option>
+                        <option value="2">Orange</option>
+                        <option value="3">Vodafone</option>
+                    </select>
+                </fieldset>
+            </form>
+        </div>
+    </main>
 </body>
 </html>
