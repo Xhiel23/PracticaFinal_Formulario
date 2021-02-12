@@ -3,7 +3,7 @@
     @include reset;
 }
 
-@import '_var&fxs';
+@import '_var&fxs' , '_item';
 
 main{
     min-height: 100vh;
@@ -14,8 +14,8 @@ main{
     .glass{
         @include glass(right,bottom,0.3,0.5);
         padding: 1em 1em;
-        min-height: 80vh;
-        width: 70%;
+        min-height: 95vh;
+        width: 80%;
         border-radius: 1.5em;
         z-index: 2;
         backdrop-filter: blur(1.2em);
@@ -41,64 +41,6 @@ main{
             flex-direction: column;
             justify-content: center;
             align-items: center;
-
-            .field{
-                padding: 0 2em;
-                margin: 0.5em 2em;
-                width: 100%;
-                @include glass(right,bottom,0.4,0.5);
-                border-radius: 1.5em;
-                .tittleDiv{
-                    padding: 1em 0 0 0;
-                    h2{
-                        font-family: $tittlesFont;
-                        font-weight: $h2Weight;
-                        color: $fontColor1;
-                        font-size: $h2Size;
-                    }
-                    .line{
-                        background-color: $fontColor1;
-                        opacity: 0.5;
-                        width: 100%;
-                        height: 2px;
-                        border-radius: 50%;
-                    }
-                }
-
-                .textArea{
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-evenly;
-                    padding: 1em;
-                    font-family: $bodyFont; 
-                    color: $fontColor2;
-                    font-weight: 400;
-                    .item{
-                        display: flex;
-                        justify-content: space-evenly;
-                        flex: 1;
-                        align-items: center;
-                    }
-                    input[type='text'], input[type='number']{
-                        background-color: $fillColor;
-                        border-radius: 1.5em;
-                        height: 1.2em;
-                        padding: 1em;
-                        margin: 0.5em;
-                        flex: 1;
-                        font-family: inherit;
-                        border: none;
-                        font-size: 0.8em;
-                        color: $fontColor2;
-                        &::placeholder{
-                            color: $fontColor2;
-                            opacity: 0.6;
-                            font-family: inherit;
-                        }
-                    }
-
-                }
-            }
         }
     }
 }

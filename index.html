@@ -28,11 +28,11 @@
                         </div>
                         <div class="item">                        
                             <label for="apellido">Apellido:</label>
-                            <input type="text" id="apellido" value="" placeholder="Apellido"/><br/>
+                            <input type="text" id="apellido" maxlength="60" value="" placeholder="Apellido"/><br/>
                         </div>
                         <div class="item">                        
                             <label for="direccion">Dirección:</label>
-                            <input type="text" id="direccion" value="" placeholder="Dirección"/><br/>
+                            <input type="text" id="direccion" maxlength="60" value="" placeholder="Dirección"/><br/>
                         </div>
                         <div class="item">                        
                             <label for="codigoPostal">Código Postal:</label>
@@ -40,7 +40,7 @@
                         </div>
                         <div class="item">                        
                             <label for="localidad">Localidad:</label>
-                            <input type="text" id="localidad" value="" placeholder="Localidad"/><br/>
+                            <input type="text" id="localidad" maxlength="60" value="" placeholder="Localidad"/><br/>
                         </div>
                     </div> 
                 </fieldset>
@@ -48,26 +48,39 @@
                 <fieldset class="field">
                     <div class="tittleDiv">
                         <h2>Tipo de Contratación</h2>
+                        <div class="line"></div>
                     </div>
-                    <input type="radio" name="contratacion" value="0"> Nueva Contratación</input>
-                    <input type="radio" name="contratacion" value="1"> Portabilidad</input>
-                    <input type="radio" name="contratacion" value="2"> Cambio de Contrato</input>
-                    <p>Elija la compañía actual: </p>
-                    <select name="compañia" checked="checked">
-                        <option value="0">Yoigo</option>
-                        <option value="1">Movistar</option>
-                        <option value="2">Orange</option>
-                        <option value="3">Vodafone</option>
-                        <option value="4">No tengo ninguna compañia</option>
-                    </select>
-
-                    <p>En caso de portabilidad, elija la nueva compañía: </p>
-                    <select name="compañia" checked="checked">
-                        <option value="0">Yoigo</option>
-                        <option value="1">Movistar</option>
-                        <option value="2">Orange</option>
-                        <option value="3">Vodafone</option>
-                    </select>
+                    <div class="radioArea">
+                        <div class="contratacion">
+                            <input id="r1" type="radio" name="radio" value="1" checked>
+                            <label for="r1">Nueva Contratación</label>
+                            <input id="r2" type="radio" name="radio" value="2">
+                            <label for="r2">Portabilidad</label>
+                            <input id="r3" type="radio" name="radio" value="2">
+                            <label for="r3">Cambio de Contrato</label>
+                        </div>
+                        <div class="portArea">
+                            <div class="options">
+                                <p>Elija la compañía actual: </p>
+                                <select name="compañia" checked="checked">
+                                    <option value="0" >Yoigo</option>
+                                    <option value="1" selected>Movistar</option>
+                                    <option value="2">Orange</option>
+                                    <option value="3">Vodafone</option>
+                                    <option value="4">No tengo ninguna</option>
+                                </select>
+                            </div>
+                            <div class="options">
+                                <p>En caso de portabilidad, elija la nueva compañía: </p>
+                                <select name="compañia" checked="checked">
+                                    <option value="0">Yoigo</option>
+                                    <option value="1" selected>Movistar</option>
+                                    <option value="2">Orange</option>
+                                    <option value="3">Vodafone</option>
+                                </select>
+                            </div>     
+                        </div>
+                    </div>   
                 </fieldset>
 
                 <fieldset class="field">
@@ -82,25 +95,42 @@
                         </div>
                         <div class="item">                        
                             <label for="iban">Control IBAN:</label>
-                            <input type="text" id="iban" maxlength="2" value="" placeholder="XX"/><br/>
+                            <input type="text" id="iban" pattern = "[0-9]" maxlength="2" value="" placeholder="XX"/><br/>
                         </div>
                         <div class="item">                        
                             <label for="entidad">Entidad:</label>
-                            <input type="text" id="entidad" maxlength="4" value="" placeholder="XXXX"/><br/>
+                            <input type="text" id="entidad" pattern = "[0-9]" maxlength="4" value="" placeholder="XXXX"/><br/>
                         </div>
                         <div class="item">                        
                             <label for="sucursal">Sucursal:</label>
-                            <input type="text" maxlength="4" id="sucursal" maxlength="4" value="" placeholder="XXXX"/><br/>    
+                            <input type="text" maxlength="4" pattern = "[0-9]" id="sucursal" maxlength="4" value="" placeholder="XXXX"/><br/>    
                         </div>
                         <div class="item">                        
                             <label for="DC">DC:</label>
-                            <input type="text" id="DC" maxlength="2" value="" placeholder="XX"/><br/>
+                            <input type="text" id="DC" pattern = "[0-9]" maxlength="2" value="" placeholder="XX"/><br/>
                         </div>
                         <div class="item">                        
                             <label for="Cuenta">Cuenta:</label>
-                            <input type="text" id="Cuenta" pattern = "[0-9]" maxlength="10" value="" placeholder="XXXXXXXXXX"/><br/>
+                            <input type="text" id="Cuenta" pattern = "[0-9]" pattern = "[0-9]" maxlength="10" value="" placeholder="XXXXXXXXXX"/><br/>
                         </div>
                     </div> 
+                </fieldset>
+                <fieldset class="field">
+                    <div class="tittleDiv">
+                        <h2>Datos Estadísticos - ¿Cómo nos conoció? </h2>
+                        <div class="line"></div>
+                    </div>
+                    <div class="check">
+                        <input id="c1" type="checkbox" name="checkbox" value="1">
+                        <label for="c1">A través de TV</label>
+                        <input id="c2" type="checkbox" name="checkbox" value="2">
+                        <label for="c2">A través de la radio</label>
+                        <input id="c3" type="checkbox" name="checkbox" value="3">
+                        <label for="c3">A través de Intenet</label>
+                        <input id="c4" type="checkbox" name="checkbox" value="4">
+                        <label for="c4">Otros</label>
+                    </div>
+
                 </fieldset>
             </form>
         </div>

@@ -26,6 +26,109 @@
   display: block;
   clear: both; }
 
+select {
+  background-color: rgba(187, 200, 237, 0.5);
+  border-radius: 1.5em;
+  padding: 1em;
+  margin: 0.5em;
+  width: 40%;
+  font-family: inherit;
+  font-size: 1em;
+  color: #2A3B52;
+  flex: 1; }
+
+.field {
+  padding: 0 2em;
+  margin: 0.5em 2em;
+  width: 100%;
+  background-color: white;
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.5));
+  border-radius: 1.5em; }
+  .field .tittleDiv {
+    padding: 1em 0 0 0; }
+    .field .tittleDiv h2 {
+      font-family: "Montserrat";
+      font-weight: 700;
+      color: #1F2B3C;
+      font-size: 1em; }
+    .field .tittleDiv .line {
+      background-color: #1F2B3C;
+      opacity: 0.5;
+      width: 100%;
+      height: 2px;
+      border-radius: 50%; }
+  .field .textArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 1em;
+    font-family: "Work Sans";
+    color: #2A3B52;
+    font-weight: 400; }
+    .field .textArea .item {
+      display: flex;
+      justify-content: space-evenly;
+      flex: 1;
+      align-items: center; }
+    .field .textArea input[type='text'], .field .textArea input[type='number'], .field .textArea input[type='checkbox'] {
+      background-color: rgba(187, 200, 237, 0.5);
+      border-radius: 1.5em;
+      height: 1.2em;
+      padding: 1em;
+      margin: 0.5em;
+      flex: 1;
+      font-family: inherit;
+      border: none;
+      font-size: 0.8em;
+      color: #2A3B52; }
+      .field .textArea input[type='text']::placeholder, .field .textArea input[type='number']::placeholder, .field .textArea input[type='checkbox']::placeholder {
+        color: #2A3B52;
+        opacity: 0.6;
+        font-family: inherit; }
+  .field .radioArea {
+    padding: 1em;
+    font-family: "Work Sans";
+    color: #2A3B52;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center; }
+    .field .radioArea .contratacion {
+      display: flex;
+      flex: row nowrap;
+      justify-content: center;
+      align-items: center; }
+      .field .radioArea .contratacion input[type='radio'] {
+        padding: 1em;
+        display: inline-block; }
+      .field .radioArea .contratacion label {
+        padding: 0 1em 0 0.5em; }
+    .field .radioArea .portArea {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em 0 0 0; }
+      .field .radioArea .portArea .options {
+        padding-left: 1em;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center; }
+        .field .radioArea .portArea .options p {
+          flex: 1; }
+  .field .check {
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Work Sans";
+    color: #2A3B52; }
+    .field .check input[type='checkbox'] {
+      padding: 1em;
+      display: inline-block; }
+    .field .check label {
+      padding: 0 1em 0 0.5em; }
+
 main {
   min-height: 100vh;
   background: linear-gradient(to left bottom, #BBC8ED, #D6B7DB);
@@ -36,8 +139,8 @@ main {
     background-color: white;
     background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.5));
     padding: 1em 1em;
-    min-height: 80vh;
-    width: 70%;
+    min-height: 95vh;
+    width: 80%;
     border-radius: 1.5em;
     z-index: 2;
     backdrop-filter: blur(1.2em); }
@@ -62,52 +165,4 @@ main {
       flex-direction: column;
       justify-content: center;
       align-items: center; }
-      main .glass .form .field {
-        padding: 0 2em;
-        margin: 0.5em 2em;
-        width: 100%;
-        background-color: white;
-        background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.5));
-        border-radius: 1.5em; }
-        main .glass .form .field .tittleDiv {
-          padding: 1em 0 0 0; }
-          main .glass .form .field .tittleDiv h2 {
-            font-family: "Montserrat";
-            font-weight: 700;
-            color: #1F2B3C;
-            font-size: 1em; }
-          main .glass .form .field .tittleDiv .line {
-            background-color: #1F2B3C;
-            opacity: 0.5;
-            width: 100%;
-            height: 2px;
-            border-radius: 50%; }
-        main .glass .form .field .textArea {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-evenly;
-          padding: 1em;
-          font-family: "Work Sans";
-          color: #2A3B52;
-          font-weight: 400; }
-          main .glass .form .field .textArea .item {
-            display: flex;
-            justify-content: space-evenly;
-            flex: 1;
-            align-items: center; }
-          main .glass .form .field .textArea input[type='text'], main .glass .form .field .textArea input[type='number'] {
-            background-color: rgba(187, 200, 237, 0.5);
-            border-radius: 1.5em;
-            height: 1.2em;
-            padding: 1em;
-            margin: 0.5em;
-            flex: 1;
-            font-family: inherit;
-            border: none;
-            font-size: 0.8em;
-            color: #2A3B52; }
-            main .glass .form .field .textArea input[type='text']::placeholder, main .glass .form .field .textArea input[type='number']::placeholder {
-              color: #2A3B52;
-              opacity: 0.6;
-              font-family: inherit; }
 /*# sourceMappingURL=styles.css.map */
