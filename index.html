@@ -13,12 +13,12 @@
     <main>
         <div class="glass">
             <div class="tittle">
-                <h1>Formulario Alta Telefónica</h1>
+                <h1>Formulario Información Alta Telefónica</h1>
             </div>
             <form class="form" action=""> 
                 <fieldset class="field">
                     <div class="tittleDiv">
-                        <h2>Datos personales</h2>
+                        <h2>Datos Personales</h2>
                         <div class="line"></div>
                     </div>
                     <div class="textArea">
@@ -68,6 +68,39 @@
                         <option value="2">Orange</option>
                         <option value="3">Vodafone</option>
                     </select>
+                </fieldset>
+
+                <fieldset class="field">
+                    <div class="tittleDiv">
+                        <h2>Datos Bancarios</h2>
+                        <div class="line"></div>
+                    </div>
+                    <div class="textArea">
+                        <div class="item">                        
+                            <label for="pais">País:</label>
+                            <input type="text" id="name" maxlength="2" value="ES" disabled/><br/>
+                        </div>
+                        <div class="item">                        
+                            <label for="iban">Control IBAN:</label>
+                            <input type="text" id="iban" maxlength="2" value="" placeholder="XX"/><br/>
+                        </div>
+                        <div class="item">                        
+                            <label for="entidad">Entidad:</label>
+                            <input type="text" id="entidad" maxlength="4" value="" placeholder="XXXX"/><br/>
+                        </div>
+                        <div class="item">                        
+                            <label for="sucursal">Sucursal:</label>
+                            <input type="text" maxlength="4" id="sucursal" maxlength="4" value="" placeholder="XXXX"/><br/>    
+                        </div>
+                        <div class="item">                        
+                            <label for="DC">DC:</label>
+                            <input type="text" id="DC" maxlength="2" value="" placeholder="XX"/><br/>
+                        </div>
+                        <div class="item">                        
+                            <label for="Cuenta">Cuenta:</label>
+                            <input type="text" id="Cuenta" pattern = "[0-9]" maxlength="10" value="" placeholder="XXXXXXXXXX"/><br/>
+                        </div>
+                    </div> 
                 </fieldset>
             </form>
         </div>

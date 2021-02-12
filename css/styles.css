@@ -44,7 +44,7 @@ main {
     main .glass .tittle {
       padding: 1em 1em;
       margin: auto;
-      width: 60%;
+      width: 70%;
       border-radius: 1.5em;
       display: flex;
       justify-content: center;
@@ -57,7 +57,7 @@ main {
         color: #1F2B3C;
         font-size: 1.3em; }
     main .glass .form {
-      padding: 1.5em 1.5em;
+      padding: 1em 1.5em;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -98,14 +98,16 @@ main {
           main .glass .form .field .textArea input[type='text'], main .glass .form .field .textArea input[type='number'] {
             background-color: rgba(187, 200, 237, 0.5);
             border-radius: 1.5em;
-            height: 1em;
+            height: 1.2em;
             padding: 1em;
             margin: 0.5em;
             flex: 1;
             font-family: inherit;
             border: none;
+            font-size: 0.8em;
             color: #2A3B52; }
             main .glass .form .field .textArea input[type='text']::placeholder, main .glass .form .field .textArea input[type='number']::placeholder {
               color: #2A3B52;
-              opacity: 0.6; }
+              opacity: 0.6;
+              font-family: inherit; }
 /*# sourceMappingURL=styles.css.map */
