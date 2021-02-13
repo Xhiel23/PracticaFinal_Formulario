@@ -163,6 +163,41 @@ select {
         margin: 0.5em;
         color: #2A3B52; }
 
+.btn1 {
+  margin-right: 1em;
+  width: 15%;
+  padding: 0.3em;
+  background-color: white;
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.5));
+  border-radius: 1.5em;
+  text-align: center;
+  border: 2px solid #2A3B52;
+  font-family: "Work Sans";
+  color: #2A3B52;
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+  box-shadow: -3px -3px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2); }
+  .btn1:hover {
+    color: #2A3B52;
+    background-color: rgba(187, 200, 237, 0.5);
+    transform: scale(1.1); }
+
+.btn2 {
+  margin-right: 1.5em;
+  padding: 0.3em;
+  border-radius: 1.5em;
+  width: 12%;
+  text-align: center;
+  border: 2px solid #2A3B52;
+  font-family: "Work Sans";
+  color: #2A3B52;
+  background-color: rgba(187, 200, 237, 0.5);
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+  box-shadow: -3px -3px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2); }
+  .btn2:hover {
+    transform: scale(1.1); }
+
 main {
   min-height: 100vh;
   background: linear-gradient(to left bottom, #BBC8ED, #D6B7DB);
@@ -194,9 +229,17 @@ main {
         color: #1F2B3C;
         font-size: 1.3em; }
     main .glass .form {
-      padding: 1em 1.5em;
+      padding: .2em 1.5em;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center; }
+    main .glass .sendButtons {
+      padding: 0em 1.5em;
+      display: flex; }
+    main .glass .dataButtons {
+      padding: 1em;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
 /*# sourceMappingURL=styles.css.map */

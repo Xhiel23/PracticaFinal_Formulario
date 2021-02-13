@@ -3,7 +3,7 @@
     @include reset;
 }
 
-@import '_var&fxs' , '_item';
+@import '_var&fxs' , '_item', '_btn';
 
 main{
     min-height: 100vh;
@@ -36,11 +36,21 @@ main{
             }
         }
         .form{
-            padding: 1em 1.5em;
+            padding: .2em 1.5em;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+        }
+        .sendButtons{
+            padding: 0em 1.5em;
+            display: flex;
+        }
+        .dataButtons{
+            padding: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
 }
