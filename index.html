@@ -91,7 +91,7 @@
                     <div class="textArea">
                         <div class="item">                        
                             <label for="pais">País:</label>
-                            <input type="text" id="name" maxlength="2" value="ES" disabled/><br/>
+                            <input type="text" id="pais" maxlength="2" value="ES" disabled/><br/>
                         </div>
                         <div class="item">                        
                             <label for="iban">Control IBAN:</label>
@@ -102,16 +102,16 @@
                             <input type="text" id="entidad" pattern = "[0-9]" maxlength="4" value="" placeholder="XXXX"/><br/>
                         </div>
                         <div class="item">                        
-                            <label for="sucursal">Sucursal:</label>
-                            <input type="text" maxlength="4" pattern = "[0-9]" id="sucursal" maxlength="4" value="" placeholder="XXXX"/><br/>    
+                            <label for="suc">Sucursal:</label>
+                            <input type="text" id="suc" maxlength="4" pattern = "[0-9]" id="sucursal" maxlength="4" value="" placeholder="XXXX"/><br/>    
                         </div>
                         <div class="item">                        
                             <label for="DC">DC:</label>
                             <input type="text" id="DC" pattern = "[0-9]" maxlength="2" value="" placeholder="XX"/><br/>
                         </div>
                         <div class="item">                        
-                            <label for="Cuenta">Cuenta:</label>
-                            <input type="text" id="Cuenta" pattern = "[0-9]" pattern = "[0-9]" maxlength="10" value="" placeholder="XXXXXXXXXX"/><br/>
+                            <label for="cuenta">Cuenta:</label>
+                            <input type="text" id="cuenta" pattern = "[0-9]" pattern = "[0-9]" maxlength="10" value="" placeholder="XXXXXXXXXX"/><br/>
                         </div>
                     </div> 
                 </fieldset>
@@ -141,7 +141,7 @@
                         <div class="dateSection">
                             <label for="selectedDate">Fecha de la Encuesta:</label>
                             <input type="date" id="selectedDate" name="currentDate"
-                                value="2020-07-22"
+                                value="2021-01-01"
                                 min="2021-01-01" max="2025-12-31">
                         </div>
                     </div>
@@ -156,13 +156,13 @@
                 </div>
             </div>
             <div class="dataButtons">
-                <div class="btn2">
+                <div class="btn2" id="valBtn">
                     <h3>Mostrar Valoración</h3>
                 </div>
-                <div class="btn2">
+                <div class="btn2" id="accBtn">
                     <h3>Mostrar Cuenta</h3>
                 </div>
-                <div class="btn2">
+                <div class="btn2" id="dateBtn">
                     <h3>Mostrar Dia Semana</h3>
                 </div>
             </div>
