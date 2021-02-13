@@ -37,6 +37,25 @@ select {
   color: #2A3B52;
   flex: 1; }
 
+.sliderSection {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: "Work Sans";
+  color: #2A3B52;
+  padding: 1em; }
+  .sliderSection .slider_range {
+    height: 1em;
+    margin: 0 1em; }
+  .sliderSection .slider_value {
+    display: inline-block;
+    width: 2em;
+    color: #2A3B52;
+    text-align: center;
+    border-radius: 20%;
+    background: rgba(187, 200, 237, 0.5);
+    padding: .3em; }
+
 .field {
   padding: 0 2em;
   margin: 0.5em 2em;
@@ -128,6 +147,21 @@ select {
       display: inline-block; }
     .field .check label {
       padding: 0 1em 0 0.5em; }
+  .field .lastSection {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-bottom: 1em; }
+    .field .lastSection .dateSection {
+      font-family: "Work Sans";
+      color: #2A3B52; }
+      .field .lastSection .dateSection input[type="date"] {
+        background-color: rgba(187, 200, 237, 0.5);
+        border-radius: 1.5em;
+        height: 1.2em;
+        padding: 1em;
+        margin: 0.5em;
+        color: #2A3B52; }
 
 main {
   min-height: 100vh;

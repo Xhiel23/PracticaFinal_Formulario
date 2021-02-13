@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Work+Sans:wght@300;400&display=swap">
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/index.js"></script>
+    <script src="js/index.js" defer></script>
     <title>Document</title>
 </head>
 <body>
@@ -130,7 +130,21 @@
                         <input id="c4" type="checkbox" name="checkbox" value="4">
                         <label for="c4">Otros</label>
                     </div>
-
+                    <div class="lastSection">
+                        <div class="sliderSection">
+                            <p>Valoración:</p>
+                            <div id="slider">
+                                <input class="slider_range" id="sRange" type="range" min="1" max="5">
+                                <div class="slider_value" id="sValue" >0</div>
+                            </div>
+                        </div>
+                        <div class="dateSection">
+                            <label for="selectedDate">Fecha de la Encuesta:</label>
+                            <input type="date" id="selectedDate" name="currentDate"
+                                value="2020-07-22"
+                                min="2021-01-01" max="2025-12-31">
+                        </div>
+                    </div>
                 </fieldset>
             </form>
         </div>

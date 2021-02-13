@@ -1,0 +1,24 @@
+.sliderSection{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: $bodyFont;
+  color: $fontColor2;
+  padding: 1em;
+  .slider_range {
+    height: 1em;
+    margin: 0 1em;
+  }
+  .slider_value {
+    display: inline-block;
+    width: 2em;
+    color: $fontColor2;
+    text-align: center;
+    border-radius: 20%;
+    background: $fillColor;
+    padding: .3em;
+  }
+}
+
+
+  
