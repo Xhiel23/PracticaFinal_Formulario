@@ -158,6 +158,7 @@ Distribuido bajo la licencia MIT. Para más información mira el archivo `LICENS
 ## Contacto
 
 Linkedin: [Beatriz Cabrero](www.linkedin.com/in/beatriz-cabrero-saiz-85b74a1ab)
+
 Link del proyecto: [https://github.com/Xhiel23/Practica2_STKLM](https://github.com/Xhiel23/PracticaFinal_Formulario)
 
 
