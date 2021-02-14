@@ -1,3 +1,4 @@
+
 .btn1{
     margin-right: 1em;
     width: 15%;
@@ -9,6 +10,7 @@
     font-family: $bodyFont;
     color: $fontColor2;
     font-weight: 500;
+    max-width: 145px;
     cursor: pointer;
     transition: all 0.1s ease-in;
     box-shadow: -3px -3px 10px rgba(255, 255, 255, 0.8),
@@ -30,6 +32,7 @@
     color: $fontColor2;
     background-color: $fillColor;
     font-weight: 500;
+    max-width: 120px;
     cursor: pointer;
     transition: all 0.1s ease-in;
     box-shadow: -3px -3px 10px rgba(255, 255, 255, 0.8),

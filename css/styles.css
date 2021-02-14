@@ -179,6 +179,7 @@ select {
   font-family: "Work Sans";
   color: #2A3B52;
   font-weight: 500;
+  max-width: 145px;
   cursor: pointer;
   transition: all 0.1s ease-in;
   box-shadow: -3px -3px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2); }
@@ -198,6 +199,7 @@ select {
   color: #2A3B52;
   background-color: rgba(187, 200, 237, 0.5);
   font-weight: 500;
+  max-width: 120px;
   cursor: pointer;
   transition: all 0.1s ease-in;
   box-shadow: -3px -3px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2); }

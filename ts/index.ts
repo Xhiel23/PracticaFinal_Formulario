@@ -35,6 +35,8 @@ for(let element of Array.from(btns)){
                     return;
                 }else{
                     element.value = "";
+                    value.innerHTML = 1;
+                    range.value = 1;
                     setDateCalendar();
                 }
             });
