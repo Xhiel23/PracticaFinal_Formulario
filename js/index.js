@@ -1,7 +1,9 @@
+'use strict';
 var slider = document.getElementById("slider");
 var range = document.getElementById("sRange");
 var value = document.getElementById("sValue");
-value.innerHTML = range.value;
+value.innerHTML = 1;
+range.value = 1;
 var msg = document.querySelector("#messageText");
 var msgDiv = document.querySelector("#message");
 var msgButton = document.querySelector("#messageBtn");
@@ -12,7 +14,7 @@ var btnsIDs = []; // js does not allocate memory if not initialized
 // if (!btnsIDs[i]) btnsIDs[i] = [];
 setDateCalendar();
 range.addEventListener("change", function () {
-    console.log(range.value);
+    //console.log(range.value);
     value.innerHTML = range.value;
 });
 for (var _i = 0, _a = Array.from(btns); _i < _a.length; _i++) {

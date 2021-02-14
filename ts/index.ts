@@ -1,8 +1,9 @@
-const slider = <HTMLInputElement>document.getElementById("slider");
-const range = <HTMLInputElement>document.getElementById("sRange");
-const value = <HTMLInputElement>document.getElementById("sValue");
-value.innerHTML = range.value;
-
+'use strict'
+const slider : HTMLInputElement = <HTMLInputElement>document.getElementById("slider");
+const range  : HTMLInputElement = <HTMLInputElement>document.getElementById("sRange");
+const value  : HTMLInputElement = <HTMLInputElement>document.getElementById("sValue");
+value.innerHTML = 1;
+range.value = 1;
 const msg = (document.querySelector("#messageText") as HTMLElement);
 const msgDiv = (document.querySelector("#message") as HTMLElement);
 const msgButton = (document.querySelector("#messageBtn") as HTMLElement);
@@ -14,7 +15,7 @@ let btnsIDs = []; // js does not allocate memory if not initialized
 // if (!btnsIDs[i]) btnsIDs[i] = [];
 setDateCalendar();
 range.addEventListener("change", function () {
-    console.log(range.value);
+    //console.log(range.value);
     value.innerHTML = range.value;
 });
 for(let element of Array.from(btns)){
@@ -42,10 +43,10 @@ for(let element of Array.from(btns)){
 
 });
 
-function setDateCalendar() {
-    let today = new Date();
-    let day, month;
-    let year = String(today.getFullYear());
+function setDateCalendar() : void{
+    let today: Date = new Date();
+    let day : string, month : string;
+    let year : string = String(today.getFullYear());
     if (today.getDate() < 10) {
         day = "0" + String(today.getDate());
     }
@@ -66,7 +67,7 @@ function setDateCalendar() {
     console.log(year + "-" + month + "-" + day);
     (<HTMLInputElement>document.getElementById("selectedDate")).value = year + "-" + month + "-" + day;
 }
-function getMsg(index){
+function getMsg(index : number) : string{
     switch (index){
         case 0:
             return "Los datos se han borrado correctamente";
