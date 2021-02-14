@@ -12,6 +12,7 @@ const btns: HTMLCollectionOf<Element> = document.getElementsByClassName("button"
 let btnsIDs = []; // js does not allocate memory if not initialized
 // let i;
 // if (!btnsIDs[i]) btnsIDs[i] = [];
+setDateCalendar();
 range.addEventListener("change", function () {
     console.log(range.value);
     value.innerHTML = range.value;
@@ -33,25 +34,18 @@ for(let element of Array.from(btns)){
                     return;
                 }else{
                     element.value = "";
+                    setDateCalendar();
                 }
             });
         }
     })
 
 });
-// deleteBtn.addEventListener("click",function() {
-//     document.querySelectorAll("input").forEach((element) => {
-//         if(element.value === "ES"){
-//             return;
-//         }else{
-//             element.value = "";
-//         }
-//     });
-// })
+
 function setDateCalendar() {
-    var today = new Date();
-    var day, month;
-    var year = String(today.getFullYear());
+    let today = new Date();
+    let day, month;
+    let year = String(today.getFullYear());
     if (today.getDate() < 10) {
         day = "0" + String(today.getDate());
     }
@@ -70,7 +64,7 @@ function setDateCalendar() {
         }
     }
     console.log(year + "-" + month + "-" + day);
-    (<HTMLInputElement>document.getElementById("#selectedDate")).value = year + "-" + month + "-" + day;
+    (<HTMLInputElement>document.getElementById("selectedDate")).value = year + "-" + month + "-" + day;
 }
 function getMsg(index){
     switch (index){
@@ -87,7 +81,7 @@ function getMsg(index){
             (<HTMLInputElement>document.getElementById("DC")).value + "-" +
             (<HTMLInputElement>document.getElementById("cuenta")).value;
         case 3:
-            return "La fecha seleccionada en el elemento de fecha es un " + getDay(new Date((<HTMLInputElement>document.getElementById("#selectedDate")).value));  
+            return "La fecha seleccionada en el elemento de fecha es un " + getDay(new Date((<HTMLInputElement>document.getElementById("selectedDate")).value));  
         default: return "Undefined";     
     }
 }

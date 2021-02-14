@@ -10,6 +10,7 @@ var btns = document.getElementsByClassName("button");
 var btnsIDs = []; // js does not allocate memory if not initialized
 // let i;
 // if (!btnsIDs[i]) btnsIDs[i] = [];
+setDateCalendar();
 range.addEventListener("change", function () {
     console.log(range.value);
     value.innerHTML = range.value;
@@ -32,20 +33,12 @@ for (var _i = 0, _a = Array.from(btns); _i < _a.length; _i++) {
                 }
                 else {
                     element.value = "";
+                    setDateCalendar();
                 }
             });
         }
     });
 });
-// deleteBtn.addEventListener("click",function() {
-//     document.querySelectorAll("input").forEach((element) => {
-//         if(element.value === "ES"){
-//             return;
-//         }else{
-//             element.value = "";
-//         }
-//     });
-// })
 function setDateCalendar() {
     var today = new Date();
     var day, month;
@@ -68,7 +61,7 @@ function setDateCalendar() {
         }
     }
     console.log(year + "-" + month + "-" + day);
-    document.getElementById("#selectedDate").value = year + "-" + month + "-" + day;
+    document.getElementById("selectedDate").value = year + "-" + month + "-" + day;
 }
 function getMsg(index) {
     switch (index) {
@@ -85,7 +78,7 @@ function getMsg(index) {
                 document.getElementById("DC").value + "-" +
                 document.getElementById("cuenta").value;
         case 3:
-            return "La fecha seleccionada en el elemento de fecha es un " + getDay(new Date(document.getElementById("#selectedDate").value));
+            return "La fecha seleccionada en el elemento de fecha es un " + getDay(new Date(document.getElementById("selectedDate").value));
         default: return "Undefined";
     }
 }
