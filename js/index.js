@@ -16,11 +16,9 @@ var msgDiv = document.querySelector("#message");
 var msgButton = document.querySelector("#messageBtn");
 var accFields = document.getElementsByClassName("accNum");
 var persFields = document.getElementsByClassName("input_text");
+var zipField = document.getElementsByClassName("input_num")[0];
 var btns = document.getElementsByClassName("button");
-//let btnsArray = Array.from(btns);
 var btnsIDs = []; // js does not allocate memory if not initialized
-// let i;
-// if (!btnsIDs[i]) btnsIDs[i] = [];
 setDateCalendar();
 range.addEventListener("change", function () {
     //console.log(range.value);
@@ -30,6 +28,7 @@ for (var _i = 0, _a = Array.from(btns); _i < _a.length; _i++) {
     var element = _a[_i];
     btnsIDs[(Array.from(btns)).indexOf(element)] = element.id;
 }
+dataValidation(zipField, "number");
 (Array.from(persFields)).forEach(function (element) {
     dataValidation(element, "string");
 });
@@ -38,11 +37,7 @@ for (var _i = 0, _a = Array.from(btns); _i < _a.length; _i++) {
 });
 (Array.from(btns)).forEach(function (btn) {
     btn.addEventListener("click", function () {
-        msg.innerHTML = getMsg((Array.from(btns)).indexOf(btn));
-        msgDiv.classList.add("visible");
-        msgButton.addEventListener("click", function () {
-            msgDiv.classList.remove("visible");
-        });
+        showMsg(getMsg((Array.from(btns)).indexOf(btn)));
         if ((Array.from(btns)).indexOf(btn) === 0) {
             document.querySelectorAll("input").forEach(function (element) {
                 if (element.value === "ES") {
@@ -121,11 +116,7 @@ function dataValidation(element, type) {
                 if (!(character >= "a" && character <= "z"
                     || character >= "A" && character <= "Z")) {
                     element.value = "";
-                    msg.innerHTML = "No se permiten datos numéricos";
-                    msgDiv.classList.add("visible");
-                    msgButton.addEventListener("click", function () {
-                        msgDiv.classList.remove("visible");
-                    });
+                    showMsg("No se permite introducir datos numéricos");
                 }
             });
         }
@@ -133,13 +124,16 @@ function dataValidation(element, type) {
             chars.forEach(function (character) {
                 if (!(typeof parseInt(character) === 'number' && isFinite(parseInt(character)))) {
                     element.value = "";
-                    msg.innerHTML = "Solo se permite introducir datos numéricos";
-                    msgDiv.classList.add("visible");
-                    msgButton.addEventListener("click", function () {
-                        msgDiv.classList.remove("visible");
-                    });
+                    showMsg("Solo se permite introducir datos numéricos");
                 }
             });
         }
+    });
+}
+function showMsg(msgText) {
+    msg.innerHTML = msgText;
+    msgDiv.classList.add("visible");
+    msgButton.addEventListener("click", function () {
+        msgDiv.classList.remove("visible");
     });
 }

@@ -10,11 +10,10 @@ const msgButton = (document.querySelector("#messageBtn") as HTMLElement);
 
 const accFields: HTMLCollectionOf<HTMLInputElement> = document.getElementsByClassName("accNum");
 const persFields: HTMLCollectionOf<HTMLInputElement> = document.getElementsByClassName("input_text");
+const zipField: HTMLInputElement = document.getElementsByClassName("input_num")[0];
 const btns: HTMLCollectionOf<Element> = document.getElementsByClassName("button");
-//let btnsArray = Array.from(btns);
+
 let btnsIDs = []; // js does not allocate memory if not initialized
-// let i;
-// if (!btnsIDs[i]) btnsIDs[i] = [];
 setDateCalendar();
 range.addEventListener("change", function () {
     //console.log(range.value);
@@ -23,6 +22,7 @@ range.addEventListener("change", function () {
 for(let element of Array.from(btns)){
     btnsIDs[(Array.from(btns)).indexOf(element)] = element.id;
 }
+dataValidation(zipField,"number");
 (Array.from(persFields)).forEach(element => {
     dataValidation(element,"string");
 });
@@ -32,11 +32,7 @@ for(let element of Array.from(btns)){
 
 (Array.from(btns)).forEach(btn => {
     btn.addEventListener("click", function () : void{
-        msg.innerHTML = getMsg((Array.from(btns)).indexOf(btn));
-        msgDiv.classList.add("visible");
-        msgButton.addEventListener("click",() => {
-            msgDiv.classList.remove("visible");
-        })
+        showMsg(getMsg((Array.from(btns)).indexOf(btn)));
         if((Array.from(btns)).indexOf(btn) === 0){
             document.querySelectorAll("input").forEach((element) => {
                 if(element.value === "ES"){
@@ -118,24 +114,24 @@ function dataValidation(element : HTMLInputElement, type : string ) : void{
                 if(!(character >= "a" && character <= "z" 
                 || character >= "A" && character <= "Z")){
                     element.value = "";
-                    msg.innerHTML = "No se permiten datos numéricos";
-                    msgDiv.classList.add("visible");
-                    msgButton.addEventListener("click",() => {
-                        msgDiv.classList.remove("visible");
-                    })
+                    showMsg("No se permite introducir datos numéricos");
                 }
             })
         }else{
             chars.forEach(character => {
                 if(!(typeof parseInt(character) === 'number' && isFinite(parseInt(character)))){
                     element.value = "";
-                    msg.innerHTML = "Solo se permite introducir datos numéricos";
-                    msgDiv.classList.add("visible");
-                    msgButton.addEventListener("click",() => {
-                        msgDiv.classList.remove("visible");
-                    })
+                    showMsg("Solo se permite introducir datos numéricos");
                 }
             }
         }
+    })
+}
+
+function showMsg (msgText : string) : void {
+    msg.innerHTML = msgText;
+    msgDiv.classList.add("visible");
+    msgButton.addEventListener("click",() => {
+        msgDiv.classList.remove("visible");
     })
 }
