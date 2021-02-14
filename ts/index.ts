@@ -8,6 +8,8 @@ const msg = (document.querySelector("#messageText") as HTMLElement);
 const msgDiv = (document.querySelector("#message") as HTMLElement);
 const msgButton = (document.querySelector("#messageBtn") as HTMLElement);
 
+const accFields: HTMLCollectionOf<HTMLInputElement> = document.getElementsByClassName("accNum");
+const persFields: HTMLCollectionOf<HTMLInputElement> = document.getElementsByClassName("input_text");
 const btns: HTMLCollectionOf<Element> = document.getElementsByClassName("button");
 //let btnsArray = Array.from(btns);
 let btnsIDs = []; // js does not allocate memory if not initialized
@@ -21,6 +23,12 @@ range.addEventListener("change", function () {
 for(let element of Array.from(btns)){
     btnsIDs[(Array.from(btns)).indexOf(element)] = element.id;
 }
+(Array.from(persFields)).forEach(element => {
+    dataValidation(element,"string");
+});
+(Array.from(accFields)).forEach(element => {
+    dataValidation(element,"number");
+});
 
 (Array.from(btns)).forEach(btn => {
     btn.addEventListener("click", function () : void{
@@ -66,7 +74,7 @@ function setDateCalendar() : void{
             month = String(today.getMonth() + 1);
         }
     }
-    console.log(year + "-" + month + "-" + day);
+    //console.log(year + "-" + month + "-" + day);
     (<HTMLInputElement>document.getElementById("selectedDate")).value = year + "-" + month + "-" + day;
 }
 function getMsg(index : number) : string{
@@ -100,4 +108,34 @@ function getDay(date : Date) : string{
         case 6: return "Sabado";
         default: return "-1";
     }
+}
+
+function dataValidation(element : HTMLInputElement, type : string ) : void{
+    element.addEventListener('input', function() : void{
+        let chars = [...element.value];
+        if(type === "string"){
+            chars.forEach(character => {
+                if(!(character >= "a" && character <= "z" 
+                || character >= "A" && character <= "Z")){
+                    element.value = "";
+                    msg.innerHTML = "No se permiten datos numéricos";
+                    msgDiv.classList.add("visible");
+                    msgButton.addEventListener("click",() => {
+                        msgDiv.classList.remove("visible");
+                    })
+                }
+            })
+        }else{
+            chars.forEach(character => {
+                if(!(typeof parseInt(character) === 'number' && isFinite(parseInt(character)))){
+                    element.value = "";
+                    msg.innerHTML = "Solo se permite introducir datos numéricos";
+                    msgDiv.classList.add("visible");
+                    msgButton.addEventListener("click",() => {
+                        msgDiv.classList.remove("visible");
+                    })
+                }
+            }
+        }
+    })
 }

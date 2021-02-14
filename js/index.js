@@ -1,4 +1,11 @@
 'use strict';
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 var slider = document.getElementById("slider");
 var range = document.getElementById("sRange");
 var value = document.getElementById("sValue");
@@ -7,6 +14,8 @@ range.value = 1;
 var msg = document.querySelector("#messageText");
 var msgDiv = document.querySelector("#message");
 var msgButton = document.querySelector("#messageBtn");
+var accFields = document.getElementsByClassName("accNum");
+var persFields = document.getElementsByClassName("input_text");
 var btns = document.getElementsByClassName("button");
 //let btnsArray = Array.from(btns);
 var btnsIDs = []; // js does not allocate memory if not initialized
@@ -21,6 +30,12 @@ for (var _i = 0, _a = Array.from(btns); _i < _a.length; _i++) {
     var element = _a[_i];
     btnsIDs[(Array.from(btns)).indexOf(element)] = element.id;
 }
+(Array.from(persFields)).forEach(function (element) {
+    dataValidation(element, "string");
+});
+(Array.from(accFields)).forEach(function (element) {
+    dataValidation(element, "number");
+});
 (Array.from(btns)).forEach(function (btn) {
     btn.addEventListener("click", function () {
         msg.innerHTML = getMsg((Array.from(btns)).indexOf(btn));
@@ -64,7 +79,7 @@ function setDateCalendar() {
             month = String(today.getMonth() + 1);
         }
     }
-    console.log(year + "-" + month + "-" + day);
+    //console.log(year + "-" + month + "-" + day);
     document.getElementById("selectedDate").value = year + "-" + month + "-" + day;
 }
 function getMsg(index) {
@@ -97,4 +112,34 @@ function getDay(date) {
         case 6: return "Sabado";
         default: return "-1";
     }
+}
+function dataValidation(element, type) {
+    element.addEventListener('input', function () {
+        var chars = __spreadArrays(element.value);
+        if (type === "string") {
+            chars.forEach(function (character) {
+                if (!(character >= "a" && character <= "z"
+                    || character >= "A" && character <= "Z")) {
+                    element.value = "";
+                    msg.innerHTML = "No se permiten datos numéricos";
+                    msgDiv.classList.add("visible");
+                    msgButton.addEventListener("click", function () {
+                        msgDiv.classList.remove("visible");
+                    });
+                }
+            });
+        }
+        else {
+            chars.forEach(function (character) {
+                if (!(typeof parseInt(character) === 'number' && isFinite(parseInt(character)))) {
+                    element.value = "";
+                    msg.innerHTML = "Solo se permite introducir datos numéricos";
+                    msgDiv.classList.add("visible");
+                    msgButton.addEventListener("click", function () {
+                        msgDiv.classList.remove("visible");
+                    });
+                }
+            });
+        }
+    });
 }

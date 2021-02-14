@@ -208,7 +208,7 @@ select {
 
 main {
   min-height: 100vh;
-  background: linear-gradient(to left bottom, #BBC8ED, #D6B7DB);
+  background: linear-gradient(to left bottom, #bbc8ed, rgba(187, 200, 237, 0.5));
   display: flex;
   align-items: center;
   justify-content: center; }
