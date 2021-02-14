@@ -7,7 +7,6 @@ range.value = 1;
 const msg = (document.querySelector("#messageText") as HTMLElement);
 const msgDiv = (document.querySelector("#message") as HTMLElement);
 const msgButton = (document.querySelector("#messageBtn") as HTMLElement);
-
 const accFields: HTMLCollectionOf<HTMLInputElement> = document.getElementsByClassName("accNum");
 const persFields: HTMLCollectionOf<HTMLInputElement> = document.getElementsByClassName("input_text");
 const zipField: HTMLInputElement = document.getElementsByClassName("input_num")[0];
@@ -123,7 +122,7 @@ function dataValidation(element : HTMLInputElement, type : string ) : void{
                     element.value = "";
                     showMsg("Solo se permite introducir datos numéricos");
                 }
-            }
+            });
         }
     })
 }

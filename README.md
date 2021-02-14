@@ -104,9 +104,9 @@ Para guardar una copia local y hacerla funcionar sigue los pasos de la sección 
   npm init
   ```
 6. Sigue las instrucciones de la pantalla para configurar el archivo package.json
-7. Una vez configurado, instala Gulp, Sass y Browser Sync
+7. Una vez configurado, instala Gulp, Sass, Babel y Browser Sync
   ```sh
-  npm install gulp gulp-sass browser-sync gulp-typescript typescript
+  npm install gulp gulp-sass browser-sync gulp-babel @babel/preset-typescript
   ```
 
 El archivo gulpfile.js contiene las siguientes tareas de Gulp:

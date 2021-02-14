@@ -1,5 +1,6 @@
 const fs = require("fs");
 const { src, dest, watch, series } = require("gulp");
+const babel = require('gulp-babel');
 const browsersync = require("browser-sync").create();
 
 // Project Structure
@@ -23,16 +24,15 @@ function scssTask() {
     .pipe(dest("css", { sourcemaps: "." }));
 }
 
-// Typescript compilation 
-// const ts = require('gulp-typescript');
+// Typescript compilation using Babel
 
-// function tsCompilation(){
-//   return src("ts/index.ts")
-//     .pipe(ts({
-//       out: 'index.js'
-//     }))
-//     .pipe(dest("js"));
-// }
+function tsCompilation() {
+  return src('ts/index.ts')
+        .pipe(babel({
+            presets: ['@babel/preset-typescript']
+        }))
+        .pipe(dest('js'))
+}
 
 // Live Server
 function browsersyncServe(cb) {
@@ -52,7 +52,7 @@ function browsersyncReload(cb) {
 // Watch Task
 function watchTask() {
   watch("*.html", browsersyncReload);
-  //watch("ts/**/*.ts", tsCompilation);
+  watch("ts/**/*.ts", tsCompilation);
   watch(["scss/**/*.scss", "js/**/*.js"], series(scssTask,browsersyncReload));
 }
 

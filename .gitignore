@@ -38,7 +38,6 @@ Thumbs.db
 
 
 # Mine
-# gulpfile.js
 *.json
 node_modules
 styles.css.map
