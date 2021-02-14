@@ -63,6 +63,7 @@ La práctica consiste en la creación de un formulario de alta telefónica. Para
 * [VS Code](https://code.visualstudio.com)
 * [Gulp](https://gulpjs.com)
 * [Browser Sync](http://www.browsersync.io)
+* [Babel](https://babeljs.io/)
 
 
 
