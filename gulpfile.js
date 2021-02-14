@@ -24,15 +24,15 @@ function scssTask() {
 }
 
 // Typescript compilation 
-const ts = require('gulp-typescript');
+// const ts = require('gulp-typescript');
 
-function tsCompilation(){
-  return src("ts/index.ts")
-    .pipe(ts({
-      out: 'index.js'
-    }))
-    .pipe(dest("js"));
-}
+// function tsCompilation(){
+//   return src("ts/index.ts")
+//     .pipe(ts({
+//       out: 'index.js'
+//     }))
+//     .pipe(dest("js"));
+// }
 
 // Live Server
 function browsersyncServe(cb) {
@@ -52,9 +52,9 @@ function browsersyncReload(cb) {
 // Watch Task
 function watchTask() {
   watch("*.html", browsersyncReload);
-  watch("ts/**/*.ts", tsCompilation);
+  //watch("ts/**/*.ts", tsCompilation);
   watch(["scss/**/*.scss", "js/**/*.js"], series(scssTask,browsersyncReload));
 }
 
 // Default Gulp task
-exports.default = series(scssTask, browsersyncServe, watchTask,tsCompilation);
+exports.default = series(scssTask, browsersyncServe, watchTask);

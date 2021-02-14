@@ -17,7 +17,6 @@ main{
         min-height: 95vh;
         width: 80%;
         border-radius: 1.5em;
-        z-index: 2;
         backdrop-filter: blur(1.2em);
         .tittle{
             padding: 1em 1em;
@@ -52,5 +51,47 @@ main{
             align-items: center;
             justify-content: center;
         }
+    }
+    .message{
+        z-index: 2;
+        border-radius: 1.5em;
+        background-color: $fillColor2;
+        padding: 1em;
+        border: 2px solid $fontColor2;
+        font-family: $bodyFont;
+        color: $glassWhite;
+
+        display: none;
+        #messageText{
+            padding: 1em;
+        }
+        #messageBtn{
+            padding: 0.8em;
+            border-radius: 1.5em;
+            text-align: center;
+            font-family: $bodyFont;
+            background-color: $fontColor2;
+            cursor: pointer;
+            transition: all 0.1s ease-in;
+            h4{
+                color: $glassWhite;
+            }
+            &:hover{
+                background-color: $glassWhite;
+                h4{
+                    color: $fontColor1;
+                }
+                
+            }
+        }
+    }
+    .visible{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        
     }
 }

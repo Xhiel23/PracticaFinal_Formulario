@@ -1,42 +1,52 @@
-var slider = document.querySelector("#slider");
-var range = slider.querySelector("#sRange");
-var value = slider.querySelector("#sValue");
+var slider = document.getElementById("slider");
+var range = document.getElementById("sRange");
+var value = document.getElementById("sValue");
 value.innerHTML = range.value;
-var today = new Date();
-var deleteBtn = document.querySelector("#clearDataBtn");
-var valBtn = document.querySelector("#valBtn");
-var accBtn = document.querySelector("#accBtn");
-var dateBtn = document.querySelector("#dateBtn");
+var msg = document.querySelector("#messageText");
+var msgDiv = document.querySelector("#message");
+var msgButton = document.querySelector("#messageBtn");
+var btns = document.getElementsByClassName("button");
+//let btnsArray = Array.from(btns);
+var btnsIDs = []; // js does not allocate memory if not initialized
+// let i;
+// if (!btnsIDs[i]) btnsIDs[i] = [];
 range.addEventListener("change", function () {
     console.log(range.value);
     value.innerHTML = range.value;
 });
-valBtn.addEventListener("click", function () {
-    alert("Has valorado con " + value.innerHTML + " puntos");
-});
-accBtn.addEventListener("click", function () {
-    alert("Le informamos que su cuenta bancaria es: \n " +
-        document.querySelector("#pais").value +
-        document.querySelector("#iban").value + "-" +
-        document.querySelector("#entidad").value + "-" +
-        document.querySelector("#suc").value + "-" +
-        document.querySelector("#DC").value + "-" +
-        document.querySelector("#cuenta").value);
-});
-dateBtn.addEventListener("click", function () {
-    alert("La fecha seleccionada en el elemento de fecha es un " + setDate());
-});
-deleteBtn.addEventListener("click", function () {
-    document.querySelectorAll("input").forEach(function (element) {
-        if (element.value === "ES") {
-            return;
-        }
-        else {
-            element.value = "";
+for (var _i = 0, _a = Array.from(btns); _i < _a.length; _i++) {
+    var element = _a[_i];
+    btnsIDs[(Array.from(btns)).indexOf(element)] = element.id;
+}
+(Array.from(btns)).forEach(function (btn) {
+    btn.addEventListener("click", function () {
+        msg.innerHTML = getMsg((Array.from(btns)).indexOf(btn));
+        msgDiv.classList.add("visible");
+        msgButton.addEventListener("click", function () {
+            msgDiv.classList.remove("visible");
+        });
+        if ((Array.from(btns)).indexOf(btn) === 0) {
+            document.querySelectorAll("input").forEach(function (element) {
+                if (element.value === "ES") {
+                    return;
+                }
+                else {
+                    element.value = "";
+                }
+            });
         }
     });
 });
-function setDate() {
+// deleteBtn.addEventListener("click",function() {
+//     document.querySelectorAll("input").forEach((element) => {
+//         if(element.value === "ES"){
+//             return;
+//         }else{
+//             element.value = "";
+//         }
+//     });
+// })
+function setDateCalendar() {
     var today = new Date();
     var day, month;
     var year = String(today.getFullYear());
@@ -58,8 +68,29 @@ function setDate() {
         }
     }
     console.log(year + "-" + month + "-" + day);
-    document.querySelector("#selectedDate").value = year + "-" + month + "-" + day;
-    switch (today.getDay()) {
+    document.getElementById("#selectedDate").value = year + "-" + month + "-" + day;
+}
+function getMsg(index) {
+    switch (index) {
+        case 0:
+            return "Los datos se han borrado correctamente";
+        case 1:
+            return "Has valorado con " + value.innerHTML + " puntos";
+        case 2:
+            return "Le informamos que su cuenta bancaria es: \n " +
+                document.getElementById("pais").value +
+                document.getElementById("iban").value + "-" +
+                document.getElementById("entidad").value + "-" +
+                document.getElementById("suc").value + "-" +
+                document.getElementById("DC").value + "-" +
+                document.getElementById("cuenta").value;
+        case 3:
+            return "La fecha seleccionada en el elemento de fecha es un " + getDay(new Date(document.getElementById("#selectedDate").value));
+        default: return "Undefined";
+    }
+}
+function getDay(date) {
+    switch (date.getDay()) {
         case 0: return "Domingo";
         case 1: return "Lunes";
         case 2: return "Martes";
@@ -69,5 +100,4 @@ function setDate() {
         case 6: return "Sabado";
         default: return "-1";
     }
-    return "-1";
 }

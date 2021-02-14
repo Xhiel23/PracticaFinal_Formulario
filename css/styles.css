@@ -211,7 +211,6 @@ main {
     min-height: 95vh;
     width: 80%;
     border-radius: 1.5em;
-    z-index: 2;
     backdrop-filter: blur(1.2em); }
     main .glass .tittle {
       padding: 1em 1em;
@@ -242,4 +241,36 @@ main {
       display: flex;
       align-items: center;
       justify-content: center; }
+  main .message {
+    z-index: 2;
+    border-radius: 1.5em;
+    background-color: #bbc8ed;
+    padding: 1em;
+    border: 2px solid #2A3B52;
+    font-family: "Work Sans";
+    color: white;
+    display: none; }
+    main .message #messageText {
+      padding: 1em; }
+    main .message #messageBtn {
+      padding: 0.8em;
+      border-radius: 1.5em;
+      text-align: center;
+      font-family: "Work Sans";
+      background-color: #2A3B52;
+      cursor: pointer;
+      transition: all 0.1s ease-in; }
+      main .message #messageBtn h4 {
+        color: white; }
+      main .message #messageBtn:hover {
+        background-color: white; }
+        main .message #messageBtn:hover h4 {
+          color: #1F2B3C; }
+  main .visible {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%; }
 /*# sourceMappingURL=styles.css.map */
